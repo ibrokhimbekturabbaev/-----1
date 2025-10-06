@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0131)file:///C:/Users/Acer/OneDrive/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B/%D0%A1%D0%A0%D0%A1%D0%9F%E2%84%961/index.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СРСП №1 - Практическое сравнение JS vs jQuery</title>
+    
+    <style>
+        .code-block {
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .js-block {
+            border: 2px solid #28a745; 
+            background-color: #e6ffe6;
+        }
+        .jquery-block {
+            border: 2px solid #007bff;
+            background-color: #e6f7ff;
+        }
+        .hidden {
+            display: none; 
+        }
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+    
+    <script src="./СРСП №1 - Практическое сравнение_files/jquery-3.7.1.min.js.загрузка"></script>
+</head>
+<body>
+
+    <header style="text-align: center; padding: 20px;">
+        <h1>Сравнение: Скрытие блока (JS vs jQuery)</h1>
+    </header>
+    
+    <hr>
+    
+    <section style="text-align: center;">
+        <h2>1. Чистый JavaScript (Vanilla JS)</h2>
+        <p>Используется метод <code>.classList.toggle('hidden')</code>.</p>
+        <button id="js-toggle-button" style="background-color: #28a745; color: white;">
+            Скрыть / Показать (Vanilla JS)
+        </button>
+        <div id="js-content" class="code-block js-block">
+            Этот блок управляется *чистым JavaScript*. Для скрытия используется прямое переключение CSS-класса <code>display: none;</code>.
+        </div>
+    </section>
+
+    <hr>
+    
+    <section style="text-align: center;">
+        <h2>2. Библиотека jQuery</h2>
+        <p>Используется встроенный анимированный метод <code>.slideToggle()</code>.</p>
+        <button id="jquery-toggle-button" style="background-color: #007bff; color: white;">
+            Скрыть / Показать (jQuery)
+        </button>
+        <div id="jquery-content" class="code-block jquery-block">
+            Этот блок управляется *jQuery*. Используется метод <code>.slideToggle(400)</code> для плавного скрытия с анимацией.
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const jsButton = document.getElementById('js-toggle-button');
+            const jsContent = document.getElementById('js-content');
+            jsButton.addEventListener('click', function() {
+                jsContent.classList.toggle('hidden');
+            });
+        });
+       
+        $(document).ready(function() {
+        
+            $('#jquery-toggle-button').click(function() {
+                $('#jquery-content').slideToggle(400); 
+            });
+        });
+    </script>
+
+
+</body></html>
